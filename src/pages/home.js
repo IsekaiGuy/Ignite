@@ -85,7 +85,7 @@ const GameList = styled(motion.div)`
 const Games = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
 `;
