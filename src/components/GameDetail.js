@@ -51,7 +51,6 @@ const GameDetail = ({ pathId }) => {
 
   //GET PLATFORM IMAGES
   const getPlatform = (platform) => {
-    console.log(platform);
     switch (platform) {
       case "PlayStation 4":
         return playstation;
