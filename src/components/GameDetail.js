@@ -13,6 +13,7 @@ import xbox from "../img/xbox.svg";
 import nintendo from "../img/nintendo.svg";
 import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
+import xboxX from "../img/xboxx.svg";
 //STAR IMAGES
 import starEmpty from "../img/star-empty.png";
 import starFull from "../img/star-full.png";
@@ -50,11 +51,14 @@ const GameDetail = ({ pathId }) => {
 
   //GET PLATFORM IMAGES
   const getPlatform = (platform) => {
+    console.log(platform);
     switch (platform) {
       case "PlayStation 4":
         return playstation;
       case "Xbox One":
         return xbox;
+      case "Xbox Series S/X":
+        return xboxX;
       case "PC":
         return steam;
       case "Nintendo Switch":
@@ -176,7 +180,8 @@ const Platforms = styled(motion.div)`
   justify-content: space-evenly;
 
   img {
-    margin-left: 3rem;
+    margin: 0 1rem;
+    opacity: 0.8;
   }
 `;
 
