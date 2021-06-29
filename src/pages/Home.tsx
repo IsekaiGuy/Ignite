@@ -2,29 +2,30 @@ import React, { useEffect } from "react";
 import GameDetail from "../components/GameDetail";
 import { useLocation } from "react-router-dom";
 //Redux
-import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesAction";
 //Components
 import Game from "../components/Game";
+import { OneGame } from "../components/Game";
 //Styling and Animation
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { fadeIn } from "../animations";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 
 const Home = () => {
   //GET CURRENT LOCATION
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
 
-  //FETCH GAMES
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
 
+
   //GET DATA BACK
-  const { popular, newGames, upcoming, searched } = useSelector(
+  const { popular, newGames, upcoming, searched } = useAppSelector(
     (state) => state.games
   );
 
@@ -39,12 +40,12 @@ const Home = () => {
           <>
             <h2>Searched Games</h2>
             <Games>
-              {searched.map((game) => (
+              {searched.map((game: OneGame) => (
                 <Game
                   name={game.name}
                   released={game.released}
                   id={game.id}
-                  image={game.background_image}
+                  background_image={game.background_image}
                   key={game.id}
                 />
               ))}
@@ -54,12 +55,12 @@ const Home = () => {
 
         <h2>Upcoming Games</h2>
         <Games>
-          {upcoming.map((game) => (
+          {upcoming.map((game: OneGame) => (
             <Game
               name={game.name}
               released={game.released}
               id={game.id}
-              image={game.background_image}
+              background_image={game.background_image}
               key={game.id}
             />
           ))}
@@ -67,12 +68,12 @@ const Home = () => {
 
         <h2>Popular Games</h2>
         <Games>
-          {popular.map((game) => (
+          {popular.map((game: OneGame) => (
             <Game
               name={game.name}
               released={game.released}
               id={game.id}
-              image={game.background_image}
+              background_image={game.background_image}
               key={game.id}
             />
           ))}
@@ -80,12 +81,12 @@ const Home = () => {
 
         <h2>New Games</h2>
         <Games>
-          {newGames.map((game) => (
+          {newGames.map((game: OneGame) => (
             <Game
               name={game.name}
               released={game.released}
               id={game.id}
-              image={game.background_image}
+              background_image={game.background_image}
               key={game.id}
             />
           ))}

@@ -40,11 +40,11 @@ export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${new_games}`;
 
 //GAME DETAILS
-export const gameDetailsURL = (game_id) =>
+export const gameDetailsURL = (game_id:string) =>
   `${base_url}games/${game_id}?key=${process.env.REACT_APP_RAWG_API_KEY}`;
 //Game Screenshots
-export const gameScreenshotURL = (game_id) =>
+export const gameScreenshotURL = (game_id:string) =>
   `${base_url}games/${game_id}/screenshots?key=${process.env.REACT_APP_RAWG_API_KEY}`;
 //SEARCHING GAME
-export const searchGameURL = (game_name) =>
+export const searchGameURL = (game_name:string) =>
   `${base_url}games?key=${process.env.REACT_APP_RAWG_API_KEY}&search=${game_name}&page_size=9`;
